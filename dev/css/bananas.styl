@@ -522,7 +522,6 @@ body
 			content ""
 			position absolute
 			top 0
-			left 4px
 
 			display
 			width 8px
@@ -787,5 +786,270 @@ body
 
 			.services-text
 				color $colorMain
+
+.cases-list
+	display grid
+	grid-template-columns repeat(4, 1fr)
+	grid-template-columns repeat(4, 1fr)
+	grid-gap 20px
+	overflow hidden
+
+	.cases-item
+		position relative
+
+		&--w50
+			grid-column-start span 2
+			grid-row-start span 2
+
+		&:before
+			content ""
+			display block
+			padding-top 75%
+
+		.cases-item-info
+			position absolute
+			top 0
+			left 0
+
+			display flex
+			align-items center
+			justify-content center
+			flex-flow column
+
+			padding 0 70px
+			box-sizing border-box
+
+			width 100%
+			height 100%
+
+			z-index 20
+
+		.cases-logo
+			display block
+			max-width 100px
+			width 100%
+			margin 0 auto 40px auto
+
+			svg
+				display block
+				width 100%
+
+		.cases-title
+			margin-bottom 20px
+			font-family "ProximaNovaBold"
+			font-size 24px
+			text-align center
+			text-transform uppercase
+
+		.cases-brand
+			margin-bottom 20px
+			font-family "ProximaNovaLight"
+			font-size 16px
+			text-align center
+			text-transform uppercase
+
+		.cases-text
+			margin-bottom 30px
+			line-height 22px
+			font-family "ProximaNovaLight"
+			font-size 16px
+			text-align center
+
+		.cases-img
+			position absolute
+			top 0
+			left 0
+
+			display block
+			width 100%
+			height 100%
+
+			object-fit cover
+			object-position center
+
+			z-index 10
+
+		.cases-more
+			text-align center
+
+			.cases-link
+				position relative
+				max-width 190px
+				width auto
+				margin 0 auto
+
+				padding 13px 50px 13px 30px
+
+				&:after
+					content ""
+					position absolute
+					right 25px
+					top 50%
+					margin-top -7px
+					display block
+					width 15px
+					height 14px
+
+					background-image url("../svg/arrow_right-white.svg")
+					background-size contain
+					background-repeat no-repeat
+
+					transform skewX(-30deg)
+
+					transition transform 0.3s $transitionAnimation
+
+				&:hover
+					&:after
+						background-image url("../svg/arrow_right-black.svg")
+		&:after
+			content ""
+			position absolute
+			top 0
+			left 0
+			right 0
+			bottom 0
+			display block
+			width 100%
+			height 100%
+			background rgba(255, 237, 0, 0.8)
+			opacity 0
+			transform skewX(30deg)
+			transition opacity 0.3s $transitionAnimation, transform 0.3s $transitionAnimation
+			z-index 15
+
+		&:hover
+			&:after
+				opacity 1
+				transform skewX(0)
+
+		&.cases-item--more
+			display flex
+			align-items center
+			justify-content center
+			background $colorMain
+
+			&:after
+				content none
+
+			.cases-more
+				.cases-link
+					border none
+					font-size 18px
+
+		&--yellow
+			&:after
+				content ""
+				position absolute
+				top 0
+				left 0
+				right 0
+				bottom 0
+				display block
+				width 100%
+				height 100%
+				opacity 1
+				transform skewX(0)
+				background rgba(255, 237, 0, 0.8)
+
+				z-index 15
+
+.clients-list
+	display flex
+	align-items flex-start
+	justify-content flex-start
+	flex-wrap wrap
+
+	.clients-item
+		max-width 18%
+		width 100%
+		height 160px
+		margin-right 2%
+
+		&:last-child
+		&:nth-child(5n)
+			margin-right 0
+
+	.clients-holder
+		display flex
+		align-items center
+		justify-content center
+
+		width 100%
+		height 100%
+
+	.clients-img
+		display block
+		max-width 50%
+
+.director
+	.director-holder
+		width 100px
+		height 100px
+		margin 0 auto 25px auto
+
+		img
+			display block
+			width 100%
+			height 100%
+			border-radius 2px
+			object-fit cover
+
+	.director-name
+		font-style italic
+		font-size 18px
+
+	.director-position
+		margin-bottom 30px
+		line-height 26px
+		font-style italic
+		font-size 14px
+
+	.director-quote
+		position relative
+		line-height 52px
+		font-size 28px
+
+		&:after
+			content ""
+			position absolute
+			top 50%
+			left 50%
+
+			display block
+			max-width 150px
+			width 100%
+			height 120%
+
+			background-image url("../svg/decoration.svg")
+			background-repeat no-repeat
+			background-position center
+			background-size contain
+
+			transform translate(-50%, -50%)
+
+			z-index -1
+
+.comeback
+	padding 70px 0
+	background $colorYellow
+
+	.comeback-title
+		margin-bottom 40px
+		line-height 72px
+		font-size 56px
+		font-family "ProximaNovaBold"
+		font-style italic
+
+		text-transform uppercase
+
+	.comeback-more
+		text-align center
+
+		.comeback-link
+			max-width 140px
+
+			margin 0 auto
+
+
 
 /*** //main style ***/
