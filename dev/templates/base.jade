@@ -1,0 +1,130 @@
+include ../lib/html/html.jade
+doctype html
+<!--[if IE 7]><html lang="ru" prefix="og: http://ogp.me/ns#" class="ie8 no-js"><![endif]-->
+<!--[if IE 8]><html lang="ru" prefix="og: http://ogp.me/ns#" class="ie8 no-js"><![endif]-->
+<!--[if IE 9]><html lang="ru" prefix="og: http://ogp.me/ns#" class="ie9 no-js"><![endif]-->
+<!--[if !IE]><!-->
+html(lang="ru", class="no-js", prefix="og:http://ogp.me/ns#")
+	<!--<![endif]-->
+	head
+		+headerMeta({
+			charset: "utf-8",
+			keywords: info.keywords,
+			description: info.description,
+			title: info.title,
+			robots: "index, follow",
+			viewport: "width=device-width, initial-scale=1.0"
+		})
+		+openGraph({
+			type: "website",
+			siteName: info.siteName,
+			title: info.title,
+			description: info.description,
+			url: info.productionUrl,
+			image: info.image
+		})
+		+webIcons({
+			favicon: {
+				src: "/i/favicon.ico"
+			},
+			appleTouchIcon: [
+				{
+					src: "../i/icons/apple-touch-icon.jpg"
+				}, {
+					src: "../i/icons/apple-touch-icon-76.jpg",
+					size: "76x76"
+				}, {
+					src: "../i/icons/apple-touch-icon-140.jpg",	
+					size: "140x140"
+				}, {
+					src: "../i/icons/apple-touch-icon-152.jpg",
+					size: "152x152"
+				}
+			]
+		})
+		+addCSS([
+			{
+				media: "screen",
+				href: "../css/plugins/slick.css",
+				noCache: true,
+			}, {
+				media: "screen",
+				href: "../css/" + info.code + ".css",
+				noCache: true
+			}
+		])
+
+	body(itemscope, itemtype="http://schema.org/WebPage")
+
+		div(class="page")
+			header(class="page-header", itemscope, itemtype="http://schema.org/WPHeader")
+				div(class="header-logo")
+					include ../../prod/svg/logoWhite.svg
+				div(class="header-row")
+					div(class="header-holder")
+						+menu({
+							rootClass: "header-menu",
+							items: [
+								{
+									name: "Home",
+									href: "home.html",
+									linkClass: page.code == "home" ? "link link-black active" : "link link-white",
+									addClassHolder: page.code == "home" ? "active" : "",
+									title: "",
+								}, {
+									name: "Services",
+									href: "services.html",
+									linkClass: page.code == "services" ? "link link link-black active" : "link link-white",
+									addClassHolder: page.code == "services" ? "active" : "",
+									title: "",
+								}, {
+									name: "Cases",
+									href: "cases.html",
+									linkClass: page.code == "cases" ? "link link link-black active" : "link link-white",
+									addClassHolder: page.code == "cases" ? "active" : "",
+									title: "",
+								}, {
+									name: "News",
+									href: "news.html",
+									linkClass:  page.code == "news" ? "link link link-black active" : "link link-white",
+									addClassHolder: page.code == "news" ? "active" : "",
+									title: "",
+								}, {
+									name: "About us",
+									href: "about.html",
+									linkClass:  page.code == "about" ? "link link link-black active" : "link link-white",
+									addClassHolder: page.code == "about" ? "active" : "",
+									title: "",
+								}, {
+									name: "Jobs",
+									href: "jobs.html",
+									linkClass:  page.code == "jobs" ? "link link link-black active" : "link link-white",
+									addClassHolder: page.code == "jobs" ? "active" : "",
+									title: "",
+								}, {
+									name: "Contacts",
+									href: "contacts.html",
+									linkClass:  page.code == "contacts" ? "link link link-black active" : "link link-white",
+									addClassHolder: page.code == "contacts" ? "active" : "",
+									title: "",
+								}
+							]
+						})
+						a(href="#", class="btn btn-yellow header-portal")
+							span Promo portal
+
+			main(class="page-content")
+				block content
+
+		footer(class="page-footer", itemscope, itemtype="http://schema.org/WPFooter")
+
+
+		+addJS([
+			{
+				src: "../js/jquery-3.2.1.min.js"
+			}, {
+				src: "../js/plugins/slick.min.js"
+			}, {
+				src: "../js/" + info.code + ".js"
+			}
+		])

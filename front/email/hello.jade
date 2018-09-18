@@ -1,0 +1,43 @@
+extends template.jade
+
+block content
+	h1(style="font-size: 26px; font-weight: bold; padding: 0; margin: 0 0 15px 0;")  #{customer.name}, здравствуйте.
+
+	div #{email.body}
+
+	// Start project
+	p(style="padding: 0; margin: 0 0 15px 0;") Ура! Мы начинаем с Вами новый проект &laquo;#{info.name}&raquo;.
+	p Мы рады принять в нем участие и приложим все усилия, чтобы оказать вам качественную услугу.
+
+	p Я бы хотел напомнить о том, как мы будем с Вами работать, коммуницировать и идти к намеченной цели! :)
+
+	h2(style="font-size: 20px; font-weight: bold; padding: 0; margin: 30px 0 15px 0;") Процесс
+	p
+		| В любой момент времени Вы можете перейти по адресу 
+		a(href="#{info.productionUrl}", target="_blank", style="color: #28cae0; text-decoration: none; border-bottom: 1px solid rgba(40, 202, 224, 0.4);") #{info.productionUrl}
+		|  и ознакомиться с текущим прогрессом работ.
+	p Если Вам необходимо скачать архив с текущими результатами работ, Вы также можете это сделать.
+
+	h2(style="font-size: 20px; font-weight: bold; padding: 0; margin: 30px 0 15px 0;") Обратная связь
+	p Конечно, в процессе работ, у вас будут возникать вопросы, предложения, будут находиться баги и прочее.
+
+	p(style="margin: 0 0 5px 0; padding: 0;")
+		| Если у Вас возникли какие-либо вопросы, пожалуйста свяжитесь со мной удобным для Вас способом:
+	p(style="margin: 0 0 15px 0; padding: 0;")
+		| – эл. почта: 
+		a(href="html@goodcode.ru", style="color: #28cae0; text-decoration: none; border-bottom: 1px solid rgba(40, 202, 224, 0.4);") html@goodcode.ru
+		br
+		| – тел.: 
+		a(href="tel:#", style="color: #28cae0; text-decoration: none; border-bottom: 1px solid rgba(40, 202, 224, 0.4);") +7 863 233-33-33
+		br
+		| – skype: 
+		a(href="#", style="color: #28cae0; text-decoration: none; border-bottom: 1px solid rgba(40, 202, 224, 0.4);") goodcode_studio
+
+	p(style="margin: 25px 0 0 0; padding: 0; text-align: right;")
+		i
+			| С уважением,
+			br
+			| ответственный за Ваш проект
+			br
+			| Кирикович Александр Юрьевич.
+

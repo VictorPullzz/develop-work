@@ -1,0 +1,37 @@
+extends template.jade
+
+block content
+	h1(style="font-size: 26px; font-weight: bold; padding: 0; margin: 0 0 15px 0;")  #{customer.name}, здравствуйте.
+
+	p(style="padding: 0; margin: 0 0 15px 0;") Высылаю доступы к демо результатам работ, где вы сможете следить за прогрессом работ.
+	p(style="padding: 0; margin: 0 0 15px 0;") В целях защиты вашего проекта от копирования и падания в поисковый индекс поисковых систем, доступ к демо-версии доступен по комбинации логин/пароль.
+	ul(style="margin: 15px 0; padding: 0 0 0 30px;")
+		li(style="margin: 0 0 5px; padding: 0;")
+			| url: 
+			a(href="#{info.productionUrl}", target="_blank", style="color: #28cae0; text-decoration: none; border-bottom: 1px solid rgba(40, 202, 224, 0.4);") #{info.productionUrl}
+		li(style="margin: 0 0 5px 0; padding: 0;") логин: #{access.user}
+		li(style="margin: 0 0 5px 0; padding: 0;") пароль: #{access.password}
+	p(style="padding: 0; margin: 0 0 15px 0;") Приведенные выше доступы необходимо ввести во всплывающем окне.
+
+
+	h2(style="font-size: 20px; font-weight: bold; padding: 0; margin: 30px 0 15px 0;") Обратная связь
+	p(style="margin: 0 0 5px 0; padding: 0;")
+		| Если у Вас возникли какие-либо вопросы, пожалуйста свяжитесь со мной удобным для Вас способом:
+	p(style="margin: 0 0 15px 0; padding: 0;")
+		| – эл. почта: 
+		a(href="html@goodcode.ru", style="color: #28cae0; text-decoration: none; border-bottom: 1px solid rgba(40, 202, 224, 0.4);") html@goodcode.ru
+		br
+		| – тел.: 
+		a(href="tel:#", style="color: #28cae0; text-decoration: none; border-bottom: 1px solid rgba(40, 202, 224, 0.4);") +7 863 233-33-33
+		br
+		| – skype: 
+		a(href="#", style="color: #28cae0; text-decoration: none; border-bottom: 1px solid rgba(40, 202, 224, 0.4);") goodcode_studio
+
+	p(style="margin: 25px 0 0 0; padding: 0; text-align: right;")
+		i
+			| С уважением,
+			br
+			| главный по качеству
+			br
+			| Кирикович Александр Юрьевич.
+

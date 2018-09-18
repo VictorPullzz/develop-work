@@ -1,0 +1,791 @@
+/*** Settings ***/
+@import "nib"
+@import "../lib/css/css"
+
+global-reset();
+reset-html5();
+form-reset();
+b
+strong
+i
+em
+	font-style normal
+	font-weight normal
+
+$transitionAnimation = cubic-bezier(0.250, 0.460, 0.450, 0.940)
+$colorMain = #2D2A26
+$colorYellow = #FFED00
+
+/* fonts */
+@font-face
+	font-family "ProximaNovaRegular"
+	src url("../fonts/ProximaNova-Regular.woff") format("woff")
+
+@font-face
+	font-family "ProximaNovaBold"
+	src url("../fonts/ProximaNova-Bold.woff") format("woff")
+
+@font-face
+	font-family "ProximaNovaLight"
+	src url("../fonts/ProximaNova-Light.woff") format("woff")
+
+@font-face
+	font-family "ProximaNovaSemibold"
+	src url("../fonts/ProximaNova-Semibold.woff") format("woff")
+/* //fonts */
+
+/** page style **/
+html
+	min-height 100%
+
+body
+	position relative
+	width 100%
+	min-height 100%
+	line-height 1
+	cursor default
+	font-family "ProximaNovaRegular"
+	font-size 14px
+	color #2D2A26
+
+.page
+	display block
+	width 100%
+
+	min-height 100vh
+
+	margin 0 auto
+
+.page-inner
+	position relative
+	display block
+	margin 0 auto
+	box-sizing border-box
+
+	&--w0
+		max-width 100%
+		width 100%
+		padding 0 20px
+
+	&--w1
+		max-width 1185px
+		width 100%
+		padding 0 20px
+
+	&--w2
+		max-width 1025px
+		width 100%
+		padding 0 20px
+
+	&--w3
+		max-width 795px
+		width 100%
+		padding 0 20px
+
+.page-header
+	position fixed
+	top 0
+	left 0
+	right 0
+	display block
+	width 100%
+	height 80px
+	z-index 1000
+
+	.header-row
+		display block
+		height 100%
+		padding-left 150px
+		box-sizing border-box
+
+	.header-holder
+		position relative
+		display flex
+		align-items center
+		justify-content flex-end
+
+		width 100%
+		height 100%
+
+		background $colorMain
+
+		&:before
+			content ""
+			position absolute
+			top 0
+			left -20px
+			bottom 0
+			display block
+			width 80px
+			height 80px
+			transform skewX(30deg)
+
+			background $colorMain
+
+
+	.header-logo
+		position absolute
+		top 0
+		left 50px
+		display block
+		max-width 45px
+		width 100%
+
+		transform translateY(80px)
+
+		svg
+			display block
+			width 100%
+
+	.header-menu
+		max-width 70%
+		margin-right 50px
+		width 100%
+		height 100%
+
+	.header-portal
+		max-width 195px
+		width 100%
+		margin-right 20px
+
+	.header-menu-inner
+		display flex
+		align-items center
+		justify-content flex-end
+		height 100%
+
+		.header-menu-item-holder
+			position relative
+			display block
+			height 100%
+
+			padding 0 20px
+			box-sizing border-box
+			margin-left -0.7px
+			text-align center
+
+			transform skewX(30deg)
+			overflow hidden
+
+			&:before
+				content ""
+				position absolute
+				top 0
+				right 0
+				bottom 0
+				left -100%
+
+				display block
+				width 100%
+				height 100%
+				background $colorYellow
+				transition left 0.3s $transitionAnimation
+
+			&:hover
+				color $colorMain
+
+				.header-menu-item
+					color $colorMain
+
+				&:before
+					left 0
+
+			&.active
+				&:before
+					left 0
+
+				.header-menu-item
+					color $colorMain
+
+		.header-menu-item
+			display flex
+			align-items center
+			height 100%
+			text-transform uppercase
+			letter-spacing 2px
+			font-family "ProximaNovaBold"
+			white-space nowrap
+			transform skewX(-30deg)
+
+			transition color 0.3s $transitionAnimation
+
+
+/* link button */
+.link
+	letter-spacing 0.5px
+	text-decoration none
+	color #000
+
+.link-black
+	color $colorMain
+
+.link-white
+	color #fff
+
+.link-pink
+	color $colorPink
+
+.link-color--pink
+	transition color 0.3s $transitionAnimation
+
+	&:hover
+		color $colorPink
+
+.link-opacity
+	transition opacity 0.3s $transitionAnimation
+
+	&:hover
+		opacity 0.5
+
+.link-pink--bottom
+	position relative
+	display inline
+
+	transition color 0.3s $transitionAnimation
+
+	&:after
+		content ""
+		position absolute
+		top 100%
+		left 0
+		width 100%
+		height 1px
+		background $colorPink
+
+		opacity 1
+
+		transform translateY(3px)
+
+		transition transform 0.3s $transitionAnimation, opacity 0.3s $transitionAnimation
+
+	&:hover
+		color $colorPink
+
+		&:after
+			opacity 0
+			transform translateY(10px)
+
+.link-white--bottom
+	position relative
+	display inline
+
+	transition color 0.3s $transitionAnimation
+
+	&:after
+		content ""
+		position absolute
+		top 100%
+		left 0
+		width 100%
+		height 1px
+		background #fff
+
+		opacity 1
+
+		transform translateY(3px)
+
+		transition transform 0.3s $transitionAnimation, opacity 0.3s $transitionAnimation
+
+	&:hover
+		&:after
+			opacity 0
+			transform translateY(10px)
+
+.link-pink--bottom-reverse
+	position relative
+	display inline
+
+	transition color 0.3s $transitionAnimation
+
+	&:after
+		content ""
+		position absolute
+		top 100%
+		left 0
+		width 100%
+		height 1px
+		background $colorPink
+
+		opacity 0
+
+		transform translateY(10px)
+
+		transition transform 0.2s $transitionAnimation, opacity 0.2s $transitionAnimation
+
+	&:hover
+		color $colorPink
+
+		&:after
+			opacity 1
+			transform translateY(3px)
+
+.link-black--bottom
+	position relative
+	display inline
+
+	transition color 0.3s $transitionAnimation
+
+	&:after
+		content ""
+		position absolute
+		top 100%
+		left 0
+		width 100%
+		height 1px
+		background $colorBlack
+
+		transform translateY(3px)
+
+		transition background 0.3s $transitionAnimation
+
+	&:hover
+		color $colorPink
+
+		&:after
+			background $colorPink
+
+.link-black--bottom-reverse
+	position relative
+	display inline
+
+	&:after
+		content ""
+		position absolute
+		top 100%
+		left 0
+		width 100%
+		height 1px
+		background $colorBlack
+		opacity 0
+		transform translateY(10px)
+		transition transform 0.3s $transitionAnimation, opacity 0.3s $transitionAnimation
+
+	&:hover
+		&:after
+			opacity 1
+			transform translateY(3px)
+
+.link-gray--bottom
+	position relative
+	display inline
+
+	transition color 0.3s $transitionAnimation
+
+	&:after
+		content ""
+		position absolute
+		top 100%
+		left 0
+		width 100%
+		height 1px
+		background #979797
+
+		opacity 1
+
+		transform translateY(0px)
+
+		transition transform 0.3s $transitionAnimation, opacity 0.3s $transitionAnimation
+
+	&:hover
+		&:after
+			opacity 0
+			transform translateY(5px)
+
+.btn
+	position relative
+	display block
+	letter-spacing 2px
+	font-size 14px
+	font-family "ProximaNovaBold"
+	text-transform uppercase
+	text-align center
+	text-decoration none
+	white-space nowrap
+
+	&-yellow
+		padding 17px 0
+		box-sizing border-box
+
+		background transparent
+
+		border 1px solid $colorYellow
+
+		transform skewX(30deg)
+
+		overflow hidden
+
+		color $colorYellow
+
+		transition color 0.3s $transitionAnimation
+
+		&>span
+			display inline-block
+			font-size 14px
+			transform skewX(-30deg)
+
+		&:before
+			content ""
+			position absolute
+			top 0
+			right 0
+			bottom 0
+			left -100%
+
+			display block
+			width 100%
+			height 100%
+			background $colorYellow
+
+			transition left 0.3s $transitionAnimation
+
+		&:hover
+			color $colorMain
+
+			&:before
+				left 0
+
+	&-black
+		padding 12px 0
+		box-sizing border-box
+
+		background transparent
+
+		border 1px solid $colorMain
+
+		transform skewX(30deg)
+
+		overflow hidden
+
+		background $colorMain
+
+		color #fff
+
+		transition color 0.3s $transitionAnimation, background 0.3s $transitionAnimation
+
+		&>span
+			display inline-block
+			font-size 14px
+			transform skewX(-30deg)
+
+		&:before
+			content ""
+			position absolute
+			top 0
+			right 0
+			bottom 0
+			left -100%
+
+			display block
+			width 100%
+			height 100%
+			background $colorYellow
+
+			transition left 0.3s $transitionAnimation
+
+		&:hover
+			color $colorMain
+
+			&:before
+				left 0
+
+/* //link button */
+
+
+/*** main style ***/
+.noskew
+	transform skewX(-30deg)
+
+.center
+	text-align center
+
+.section
+	margin-bottom 85px
+
+	.section-title
+		position relative
+
+		display inline-block
+		margin 0 auto 20px auto
+
+		letter-spacing 1px
+
+		font-style italic
+		font-family "ProximaNovaBold"
+		font-size 56px
+
+		text-transform uppercase
+		text-align center
+
+		color $colorMain
+
+		&:before
+			content ""
+			position absolute
+			top 0
+			left 4px
+
+			display
+			width 8px
+			height 60px
+
+			background $colorYellow
+			transform skewX(30deg)
+
+			z-index -1
+
+	.section-subtitle
+		margin-bottom 40px
+		line-height 30px
+		font-size 17px
+		text-align center
+
+.intro
+	.intro-slider
+		position relative
+		min-height 100vh
+
+		.intro-slider-item
+			position relative
+			height 100vh
+
+
+		.intro-slider-img
+			display block
+			width 100%
+			height 100%
+
+			object-fit cover
+
+		.intro-slider-text
+			position absolute
+			top 55%
+			left 50%
+			transform translate(-50%,-50%)
+			text-align center
+
+			z-index 100
+
+			.intro-slider-title
+				line-height 85px
+
+				font-family "ProximaNovaBold"
+				font-style italic
+				font-size 64px
+
+				text-transform uppercase
+
+				color #FFFFFF
+
+			.intro-slider-subtitle
+				line-height 34px
+
+				font-family "ProximaNovaLight"
+				font-size 18px
+				text-align center
+				color #FFFFFF
+
+		ul.slick-dots
+			position absolute
+			left 30px
+			bottom 30px
+
+			li
+				display inline-block
+				width 45px
+				height 5px
+				margin-right 15px
+
+				background #fff
+
+				transform skewX(30deg)
+
+				transition background 0.3s $transitionAnimation
+
+				&.slick-active
+					background $colorYellow
+
+				button
+					display block
+					width 100%
+					height 100%
+					font-size 0
+
+.services
+	position relative
+
+	.services-clearfix
+		display block
+		clearfix();
+
+	.services-list
+		display grid
+		grid-template-columns repeat(3, 1fr)
+		grid-gap 20px
+
+		position relative
+		width 100%
+
+		transform skewX(30deg)
+
+	.services-item
+		position relative
+
+		display block
+		max-height 210px
+		min-height 160px
+
+		padding 25px
+
+		background $colorMain
+
+		&:nth-child(3n)
+			margin-right 0
+
+		&:not(.services-item--yellow)
+			&:before
+				content ""
+				position absolute
+				top 0
+				right 0
+				left 0
+				bottom 0
+
+				display block
+				width 100%
+				height 100%
+
+				background rgba(111, 111, 111, 0.85)
+				opacity 0
+				transform scale(0.8)
+
+				transition opacity 0.3s $transitionAnimation, transform 0.3s $transitionAnimation
+
+				z-index 10
+
+
+		.services-name
+			margin-bottom 20px
+
+			letter-spacing 1px
+
+			font-style italic
+			font-family "ProximaNovaBold"
+			font-size 16px
+
+			line-height 20px
+
+			text-transform uppercase
+
+			color #fff
+
+		.services-holder
+			width 55px
+			height 55px
+			margin 0 auto 25px auto
+
+			svg
+				display block
+				width 100%
+
+		.services-text
+			font-family "ProximaNovaLight"
+			font-size 12px
+			color #fff
+
+		.services-more
+			transition opacity 0.3s $transitionAnimation, transform 0.3s $transitionAnimation
+
+			&.hide
+				position absolute
+				top 50%
+				left 20px
+				right 20px
+
+				display block
+
+				opacity 0
+				transform skewX(-30deg) translateY(10px)
+
+				z-index 20
+
+		.services-link
+			position relative
+			padding 13px 0
+			font-family "ProximaNovaRegular"
+
+			&:after
+				content ""
+				position absolute
+				right 58px
+				top 50%
+				margin-top -7px
+				display block
+				width 15px
+				height 14px
+
+				background-image url("../svg/arrow_right-white.svg")
+				background-size contain
+				background-repeat no-repeat
+
+				transform skewX(-30deg)
+
+				transition transform 0.3s $transitionAnimation
+
+			&.btn-yellow
+				&:after
+					background-image url("../svg/arrow_right-yellow.svg")
+
+			&:hover
+				&:after
+					background-image url("../svg/arrow_right-black.svg")
+
+
+		&.services-item-link
+			position relative
+
+			&:after
+				content ""
+				position absolute
+				top 50%
+				left 50%
+
+				display block
+				width 50px
+				height 50px
+
+				margin-top -25px
+				margin-left -25px
+
+				background-image url("../svg/services_more.svg")
+				background-size contain
+				background-repeat no-repeat
+
+				transform skewX(-30deg)
+
+				transition transform 0.3s $transitionAnimation
+
+				z-index 25
+
+			&:hover
+				&:after
+					transform skewX(-30deg) scale(1.1)
+		&:hover
+			&:not(.services-item-yellow)
+				&:before
+					opacity 1
+					transform scale(1)
+
+			.services-more
+				opacity 1
+				transform skewX(-30deg) translateY(0)
+
+		&--yellow
+			background $colorYellow
+
+			.services-name
+				color $colorMain
+
+			.services-text
+				color $colorMain
+
+/*** //main style ***/
