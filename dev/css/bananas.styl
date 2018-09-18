@@ -57,6 +57,62 @@ body
 			&:before
 				left -250px
 				width 500px
+
+.preloader
+	position fixed
+	top 0
+	right 0
+	left 0
+	bottom 0
+	width 100%
+	height 100%
+	z-index 111111
+	background #fff
+	transition: all 2s $transitionAnimation
+
+	.preloader-bcg
+		position absolute
+		top 0
+		left 0
+		right 0
+		bottom 0
+		display block
+		width 100%
+		height 100%
+		background #2d2a26
+		transform translateY(100%)
+		opacity 0
+		transition all 1.5s $transitionAnimation
+
+	.preloader-img
+		position absolute
+		top 50%
+		left 50%
+		display block
+		max-width 100px
+		width 100%
+		margin-left -107.5px
+		margin-top -43px
+		opacity 0
+		transition all 1s $transitionAnimation
+
+.preloader
+	&.active
+		.preloader-bcg
+			opacity 1
+			transform translateY(0%)
+
+		.preloader-img
+			opacity 1
+	&.hide
+		background transparent
+
+		.preloader-bcg
+			transform translateY(-100%)
+
+		.preloader-img
+			opacity 0
+
 .page
 	display block
 	width 100%
@@ -101,11 +157,62 @@ body
 	height 80px
 	z-index 1000
 
+	.header-burger-holder
+		position relative
+		display none
+		width 35px
+		height 20px
+		margin-right 30px
+		cursor pointer
+		transition transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+
+		.header-burger
+			position absolute
+			top 50%
+			display block
+			width 100%
+			height 2px
+			background $colorYellow
+			transform translateY(-50%)
+			transition width 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+
+		&:before
+		&:after
+			content ""
+			position absolute
+			top 0
+			left 0
+			display block
+			width 100%
+			height 2px
+			background $colorYellow
+			transition transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), width 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+
+		&:after
+			top initial
+			bottom 0
+
+		&.active
+			transform rotate(180deg)
+
+			.header-burger
+				display none
+
+			&:before
+				width 100%
+				transform rotate(30deg) translateX(5px) translateY(8px)
+
+			&:after
+				width 100%
+				transform: rotate(-30deg) translateX(5px) translateY(-7px)
+
+
 	.header-row
 		display block
 		height 100%
 		padding-left 150px
 		box-sizing border-box
+		overflow hidden
 
 	.header-holder
 		position relative
@@ -122,7 +229,7 @@ body
 			content ""
 			position absolute
 			top 0
-			left -20px
+			left -25px
 			bottom 0
 			display block
 			width 80px
@@ -229,7 +336,7 @@ body
 	background $colorMain
 
 	.footer-col
-		min-width 185px
+		min-width 190px
 
 	.footer-row
 		display flex
@@ -283,9 +390,11 @@ body
 			width 100%
 			color #fff
 			opacity 0.5
+			white-space nowrap
 
 	.footer-social
 		width 100%
+		margin-left 10px
 
 		.footer-title
 			text-align left
@@ -306,7 +415,7 @@ body
 			justify-content center
 
 
-			width 30px
+			width 35px
 			height 30px
 			margin-right 30px
 			background $colorYellow
@@ -494,39 +603,49 @@ body
 .center
 	text-align center
 
+.section-page
+	padding-top 140px
+	padding-bottom 140px
+
+	&.section
+		.section-title
+			margin 0 auto 60px auto
+
+.section-title
+	position relative
+
+	display inline-block
+	margin 0 auto 20px auto
+
+	letter-spacing 1px
+
+	font-style italic
+	font-family "ProximaNovaBold"
+	font-size 56px
+
+	text-transform uppercase
+	text-align center
+
+	color $colorMain
+
+	&:before
+		content ""
+		position absolute
+		top 0
+
+		display
+		width 8px
+		height 60px
+
+		background $colorYellow
+		transform skewX(30deg)
+
+		z-index -1
+
 .section
 	margin-bottom 85px
-
 	.section-title
-		position relative
-
-		display inline-block
 		margin 0 auto 20px auto
-
-		letter-spacing 1px
-
-		font-style italic
-		font-family "ProximaNovaBold"
-		font-size 56px
-
-		text-transform uppercase
-		text-align center
-
-		color $colorMain
-
-		&:before
-			content ""
-			position absolute
-			top 0
-
-			display
-			width 8px
-			height 60px
-
-			background $colorYellow
-			transform skewX(30deg)
-
-			z-index -1
 
 	.section-subtitle
 		margin-bottom 40px
@@ -535,6 +654,33 @@ body
 		text-align center
 
 .intro
+	position relative
+
+	.intro-scroll
+		position absolute
+		bottom 25px
+		right 25px
+		padding-top 40px
+		writing-mode tb-rl
+		transform rotate(180deg)
+		font-size 14px
+		color #fff
+
+		cursor pointer
+
+		z-index 200
+
+		&:before
+			content ""
+			display block
+			width 1px
+			height 20px
+
+			margin-top -30px
+			margin-left -8px
+
+			background #fff
+
 	.intro-slider
 		position relative
 		min-height 100vh
@@ -626,10 +772,10 @@ body
 		position relative
 
 		display block
-		max-height 210px
-		min-height 160px
+		min-height 212px
 
 		padding 25px
+		box-sizing border-box
 
 		background $colorMain
 
@@ -657,6 +803,11 @@ body
 
 				z-index 10
 
+			.services-holder
+				svg
+					fill #2d2a26
+					path
+						fill #ffed00
 
 		.services-name
 			margin-bottom 20px
@@ -708,32 +859,34 @@ body
 			padding 13px 0
 			font-family "ProximaNovaRegular"
 
-			&:after
-				content ""
-				position absolute
-				right 58px
-				top 50%
-				margin-top -7px
-				display block
-				width 15px
-				height 14px
+			.services-link-text
+				position relative
 
-				background-image url("../svg/arrow_right-white.svg")
-				background-size contain
-				background-repeat no-repeat
+				&:after
+					content ""
+					position absolute
+					right -25px
+					top 50%
+					margin-top -7px
+					display block
+					width 15px
+					height 14px
 
-				transform skewX(-30deg)
+					background-image url("../svg/arrow_right-white.svg")
+					background-size contain
+					background-repeat no-repeat
 
-				transition transform 0.3s $transitionAnimation
+					transition transform 0.3s $transitionAnimation
 
 			&.btn-yellow
-				&:after
-					background-image url("../svg/arrow_right-yellow.svg")
+				.services-link-text
+					&:after
+						background-image url("../svg/arrow_right-yellow.svg")
 
 			&:hover
-				&:after
-					background-image url("../svg/arrow_right-black.svg")
-
+				.services-link-text
+					&:after
+						background-image url("../svg/arrow_right-black.svg")
 
 		&.services-item-link
 			position relative
@@ -782,6 +935,12 @@ body
 
 			.services-text
 				color $colorMain
+
+
+	&--full
+		.services-list
+			grid-template-columns repeat(4, 1fr)
+
 
 .cases-list
 	display grid
@@ -929,9 +1088,26 @@ body
 
 			.cases-more
 				.cases-link
-					border none
-					font-size 18px
+					max-width 210px
 
+					padding 13px 80px 13px 30px
+
+					border none
+
+					.cases-link-text
+						font-size 18px
+						color $colorYellow
+						transition color 0.3s $transitionAnimation
+					&:after
+						width 17px
+						height 17px
+						background-image url("../svg/arrow_right-yellow.svg")
+
+					&:hover
+						.cases-link-text
+							color $colorMain
+						&:after
+							background-image url("../svg/arrow_right-black.svg")
 		&--yellow
 			&:after
 				content ""
@@ -976,6 +1152,7 @@ body
 	.clients-img
 		display block
 		max-width 50%
+		max-height 50px
 
 .director
 	.director-holder
@@ -1076,3 +1253,90 @@ body
 
 
 /*** //main style ***/
+
+
+/** mfp **/
+.mfp-bg
+	&.mfp-services
+		background #fff
+
+		opacity 0
+		transform scale(0.95)
+
+		transition transform 0.3s $transitionAnimation, opacity 0.3s $transitionAnimation
+
+	&.mfp-ready
+		opacity 1
+
+		transform scale(1)
+
+	&.mfp-removing
+		transform scale(0.95)
+		background #fff
+
+.mfp-wrap
+	&.mfp-services
+		.mfp-container
+			padding 0
+
+		.mfp-content
+			min-height 100vh
+			padding 85px 0
+			box-sizing border-box
+
+			opacity 0
+
+			transform translateY(-50px)
+
+			overflow-x hidden
+
+			transition transform 0.3s $transitionAnimation, opacity 0.3s $transitionAnimation
+
+			.services--full
+				position relative
+				max-width 1310px
+				margin 0 auto
+
+			.section-title
+				margin-bottom 60px
+
+			.btn-container-close
+				top -55px
+				right 20px
+				display flex
+				align-items center
+				justify-content center
+				width 35px
+				height 30px
+				background $colorMain
+				opacity 1
+				transition background 0.3s $transitionAnimation
+				transform skewX(30deg)
+
+				svg
+					display block
+					width 12px
+					height 12px
+
+					transform skewX(-30deg)
+
+					path
+						stroke #fff
+						fill #fff
+						transition stroke 0.3s $transitionAnimation
+				&:hover
+					background $colorYellow
+					svg
+						path
+							stroke $colorMain
+
+		&.mfp-ready
+			.mfp-content
+				opacity 1
+				transform translateY(0)
+
+		&.mfp-removing
+			.mfp-content
+				opacity 0
+				transform translateY(-50px)
+/** //mfp **/

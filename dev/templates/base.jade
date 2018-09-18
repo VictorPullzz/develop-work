@@ -49,7 +49,15 @@ html(lang="ru", class="no-js", prefix="og:http://ogp.me/ns#")
 				noCache: true,
 			}, {
 				media: "screen",
+				href: "../css/plugins/magnific-popup.css",
+				noCache: true,
+			}, {
+				media: "screen",
 				href: "../css/" + info.code + ".css",
+				noCache: true
+			}, {
+				media: "screen",
+				href: "../css/" + info.code + ".responsive.css",
 				noCache: true
 			}
 		])
@@ -62,6 +70,9 @@ html(lang="ru", class="no-js", prefix="og:http://ogp.me/ns#")
 					include ../../prod/svg/logoWhite.svg
 				div(class="header-row")
 					div(class="header-holder")
+						div(class="header-burger-holder")
+							div(class="header-burger")
+
 						+menu({
 							rootClass: "header-menu",
 							items: [
@@ -115,7 +126,12 @@ html(lang="ru", class="no-js", prefix="og:http://ogp.me/ns#")
 
 			main(class="page-content")
 				block content
-
+		
+		div(class="preloader")
+			div(class="preloader-bcg")
+			div(class="preloader-img")
+				include ../../prod/svg/logoWhite.svg
+				
 		footer(class="page-footer", itemscope, itemtype="http://schema.org/WPFooter")
 			div(class="footer-row")
 				div(class="footer-col")
@@ -152,6 +168,8 @@ html(lang="ru", class="no-js", prefix="og:http://ogp.me/ns#")
 				src: "../js/jquery-3.2.1.min.js"
 			}, {
 				src: "../js/plugins/slick.min.js"
+			}, {
+				src: "../js/plugins/jquery.magnific-popup.min.js"
 			}, {
 				src: "../js/" + info.code + ".js"
 			}

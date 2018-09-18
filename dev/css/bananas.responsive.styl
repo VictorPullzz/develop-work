@@ -1,0 +1,188 @@
+@media screen and (max-width: 1024px)
+    .page-header
+        .header-menu
+            margin-right 30px
+
+        .header-menu-inner
+            .header-menu-item
+                font-size 12px
+
+@media screen and (max-width: 1000px)
+    .page-header
+        .header-menu
+            display none
+
+        .header-burger-holder
+            display block
+
+    .cases-list
+        grid-template-columns 1fr
+
+        .cases-item--w25
+            grid-column-start span 2
+            grid-row-start span 2
+
+    .services
+        .services-list
+            display flex
+            justify-content flex-start
+            align-items center
+
+            flex-wrap wrap
+
+
+            transform skewX(0deg)
+
+            .services-name
+                transform skewX(0deg)
+
+            .services-holder
+                transform skewX(0deg)
+
+            .services-text
+                transform skewX(0deg)
+
+            .services-more
+                .services-link-text
+                    transform skewX(0deg)
+
+        .services-item
+            max-width 48%
+            width 100%
+            margin-right 4%
+            margin-bottom 2%
+
+            &:nth-child(3n)
+                margin-right 4%
+
+            &:nth-child(2n)
+                margin-right 0
+
+            &.services-item-link:after
+                transform skewX(0deg)
+    .intro
+        .intro-slider
+            .intro-slider-text
+                .intro-slider-title
+                    line-height 45px
+                    font-size 35px
+
+@media screen and (max-width: 768px)
+    .page-footer
+        .footer-info
+            flex-wrap wrap
+
+            .footer-info-item
+                margin-bottom 10px
+
+    .clients-list
+        .clients-item
+            max-width 30%
+            margin-right 3%
+
+            &:nth-child(5n)
+                margin-right 3%
+
+            &:nth-child(3n)
+                margin-right 0
+
+    .page-footer
+        .footer-info
+            flex-wrap wrap
+
+            .footer-info-item
+                margin-bottom 10px
+
+    .clients-list
+        .clients-item
+            max-width 30%
+            margin-right 3%
+
+    .section-title
+        line-height 45px
+        font-size 35px
+
+    .comeback
+        .comeback-title
+            line-height 45px
+            font-size 35px
+@media screen and (max-width: 550px)
+    .services
+        .services-item
+            max-width 100%
+            width 100%
+            margin-right 0
+
+            &:nth-child(2n)
+            &:nth-child(3n)
+            &:nth-child(5n)
+                margin-right 0
+
+        .services-list
+            .services-text
+                font-size 14px
+
+    .intro
+        .intro-slider
+            .intro-slider-text
+                left 10%
+                right 10%
+
+                transform translateY(-50%)
+
+    .section
+        margin-bottom 40px
+
+    .cases-list
+        .cases-item
+            .cases-logo
+                margin-bottom 20px
+
+            .cases-title
+            .cases-brand
+            .cases-text
+                margin-bottom 10px
+
+@media screen and (max-width: 490px)
+    .cases-list
+        .cases-item
+            min-height 285px
+
+            .cases-item-info
+                padding 0 20px
+
+            .cases-text
+                display none
+
+    .clients-list
+        .clients-item
+            max-width 48%
+            width 100%
+            margin-right 4%
+
+            &:nth-child(2n)
+                margin-right 0
+            &:nth-child(3n)
+                margin-right 4%
+            &:nth-child(5n)
+                margin-right 4%
+
+    .page-footer
+        padding 35px 20px
+
+    .page-header
+        .header-row
+            padding-left 80px
+
+        .header-logo
+            left 10px
+            transform translateY(12px)
+
+    .page-footer
+        .footer-info
+            flex-flow column
+            justify-content flex-start
+            align-items flex-start
+
+            .footer-info-item
+                margin-right 0

@@ -31,15 +31,16 @@ block content
                             br
                             | EXPERIENCES
                         div(class="intro-slider-subtitle") We forge connections between brand and people. 
-    
+            div(data-goto="#next", class="intro-scroll") Scroll down
+            
     div(class="section")
-        div(id="services", class="services")
+        div(id="next", class="services services--home")
             div(class="page-inner page-inner--w3")
                 div(class="center")
                     div(class="section-title", data-services-title) Services
                     div(class="section-subtitle") We can help you with a wide range of tactics within brand activation, depending on your business objectives or marketing goals. This gives us proven expertise for all services from Tier 1 to Tier 3.
             
-            div(class="page-inner page-inner--w2")
+            div(class="page-inner page-inner--w3")
                 div(class="services-clearfix")
                     div(class="services-list")
                         div(class="services-item services-item--yellow")
@@ -79,7 +80,7 @@ block content
                                     a(href="#", class="btn btn-yellow services-link")
                                         span(class="services-link-text") Read more
                                         
-                        a(href="#more", class="link services-item services-item-link", data-services-more)
+                        a(href="services.html", data-container=".services--full", class="link services-item services-item-link", data-services-more)
                             div(class="services-container")
                                 div(class="services-name noskew") VIEW MORE
                                     br
