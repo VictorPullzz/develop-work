@@ -192,6 +192,7 @@
 						$showServices.each(function() {
 							var $el = $(this),
 								link = $el.attr("href"),
+								type = $el.data("type"),
 								elAjaxContent = $el.data("container");
 
 							if (elAjaxContent) {
@@ -205,7 +206,7 @@
 							$el.magnificPopup({
 								items: {
 									src: link,
-									type: "ajax",
+									type: type,
 								},
 								tLoading: "Загрузка...",
 								closeMarkup: '<button type="button" class="mfp-close btn-container-close"><svg data-name="Слой 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 11.63 11.63"><defs/><path d="M.31.31l11 11m-11 0l11-11"/></svg></button>',
