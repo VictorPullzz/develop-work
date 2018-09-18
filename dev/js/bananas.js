@@ -35,10 +35,11 @@
 					self.$services = $("#services");
 					self.$servicesItems = self.$services.find(".services-item");
 
-					self.createStructure();
+					self.createSimpleStructure();
 				},
 
-				createStructure: function() {
+				// method for create grid services //
+				createSimpleStructure: function() {
 					var self = this,
 						count = self.$servicesItems.length;
 
@@ -91,6 +92,30 @@
 					});
 				}
 
+			},
+
+			miniScripts: {
+
+				init: function() {
+					var self = this;
+
+					self.fixedLogo();
+				},
+
+				fixedLogo: function() {
+					$sel.window.on("scroll", function() {
+						var hh = $(".page-header").outerHeight(),
+							sTop = $sel.window.scrollTop();
+						console.log(sTop);
+						if(sTop > hh + 50) {
+							$sel.body.addClass("fixed-logo");
+						} else {
+							$sel.body.removeClass("fixed-logo");
+						}
+					});
+
+				},
+
 			}
 
 		};
@@ -99,5 +124,6 @@
 
 	BANANAS.slider()
 	BANANAS.gridServices.init()
+	BANANAS.miniScripts.init()
 
 })(jQuery);

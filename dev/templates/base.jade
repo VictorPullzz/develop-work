@@ -117,8 +117,36 @@ html(lang="ru", class="no-js", prefix="og:http://ogp.me/ns#")
 				block content
 
 		footer(class="page-footer", itemscope, itemtype="http://schema.org/WPFooter")
-
-
+			div(class="footer-row")
+				div(class="footer-col")
+					div(class="footer-address")
+						a(href="#", class="link link-white footer-address-link") Schaarbeeklei 647 1800 Vilvoorde BELGIUM
+					div(class="footer-phone")
+						div(class="footer-title") Phone
+						a(href="tel:+32(0)22558585", class="link link-white link-white--yellow footer-address-link") +32 (0)2 255 85 85
+						
+				div(class="footer-col")
+					div(class="footer-social")
+						div(class="footer-title") Follow us on
+						div(class="footer-social-list")
+							a(href="#", class="link footer-social-item")
+								include ../../prod/svg/facebook.svg
+							a(href="#", class="link footer-social-item")
+								include ../../prod/svg/twitter.svg
+							a(href="#", class="link footer-social-item")
+								include ../../prod/svg/instagram.svg
+			
+			div(class="footer-row")
+				div(class="footer-info")
+					div(class="footer-info-item")
+						div(class="footer-license") ® 2018 Bananas. Alle rechten voorbehouden.
+					div(class="footer-info-item")
+						a(href="#", class="link link-yellow link-yellow--white-bottom") Gebruiksvoorwaarden
+					div(class="footer-info-item")
+						a(href="#", class="link link-yellow link-yellow--white-bottom") Privacyverklaring
+					div(class="footer-info-item")
+						a(href="#", class="link link-yellow link-yellow--white-bottom") Cookiebeleid
+      
 		+addJS([
 			{
 				src: "../js/jquery-3.2.1.min.js"
